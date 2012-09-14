@@ -1,3 +1,3 @@
-default[:capistrano][:root] = "/srv/app"
+default[:capistrano][:root_path] = "/srv/app"
+default[:capistrano][:additional_directories] = ["sockets"]
 default[:capistrano][:user] = "deployer"
-default[:capistrano][:additional_paths] = ["sockets"]

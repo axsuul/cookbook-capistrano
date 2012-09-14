@@ -7,18 +7,18 @@
 # All rights reserved - Do Not Redistribute
 #
 
-# These are the directories capistrano needs
-directories = [
-                "#{node[:capistrano][:root]}",
-                "#{node[:capistrano][:root]}/releases",
-                "#{node[:capistrano][:root]}/shared",
-                "#{node[:capistrano][:root]}/shared/log",
-                "#{node[:capistrano][:root]}/shared/pids",
-                "#{node[:capistrano][:root]}/shared/system"
-              ]
+# These are the paths capistrano needs
+paths = [
+  "#{node[:capistrano][:root_path]}",
+  "#{node[:capistrano][:root_path]}/releases",
+  "#{node[:capistrano][:root_path]}/shared",
+  "#{node[:capistrano][:root_path]}/shared/log",
+  "#{node[:capistrano][:root_path]}/shared/pids",
+  "#{node[:capistrano][:root_path]}/shared/system"
+]
 
-# Add any additional paths
-default[:capistrano][:additional_paths].each { |path| directories << "#{node[:capistrano][:root]}/#{path}" }
+# Add any additional directories
+default[:capistrano][:additional_directories].each { |path| paths << "#{node[:capistrano][:root_path]}/#{path}" }
 
 username = node[:capistrano][:user]
 
@@ -26,7 +26,7 @@ username = node[:capistrano][:user]
 user_resource = user(username)
 owner_group = user_resource.group
 
-directories.each do |dir|
+paths.each do |dir|
   directory(dir) do
     owner(username)
     group(owner_group)
