@@ -18,7 +18,7 @@ paths = [
 ]
 
 # Add any additional directories
-default[:capistrano][:additional_directories].each { |path| paths << "#{node[:capistrano][:root_path]}/#{path}" }
+node[:capistrano][:additional_directories].each { |path| paths << "#{node[:capistrano][:root_path]}/#{path}" }
 
 username = node[:capistrano][:user]
 
