@@ -14,7 +14,8 @@ paths = [
   "#{node[:capistrano][:root_path]}/shared",
   "#{node[:capistrano][:root_path]}/shared/log",
   "#{node[:capistrano][:root_path]}/shared/pids",
-  "#{node[:capistrano][:root_path]}/shared/system"
+  "#{node[:capistrano][:root_path]}/shared/system",
+  "#{node[:capistrano][:root_path]}/shared/sockets"
 ]
 
 # Add any additional directories
